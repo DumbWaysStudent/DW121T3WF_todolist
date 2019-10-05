@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Text, View, StyleSheet} from 'react-native'
+import {Text, View, StyleSheet, TextInput, Button} from 'react-native'
 
 export default class App extends Component{
   render(){
@@ -11,6 +11,7 @@ export default class App extends Component{
       <View style={style.container}>
        {cars.map((car)=>{return(<Text style={style.item}>{car}</Text>)})}
       </View>
+      
     )
 
   }
