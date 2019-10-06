@@ -53,7 +53,7 @@ const style = StyleSheet.create({
     borderBottomColor: 'black',
     borderBottomWidth: 2,   
     paddingTop: 5,
-    width :220,
+    width :350,
     height:27
   },
   textfield: {
