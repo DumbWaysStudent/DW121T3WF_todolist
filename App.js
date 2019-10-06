@@ -8,15 +8,24 @@ export default class App extends Component{
     this.state = {
       text:'',
       carss: [{id:1, item:'work'},{id:2, item:'swim'},{id:3, item:'study'},{id:4, item:'sleep'},{id:5, item:'run'}],
-      check: {} 
+      check: {},
+      tampung: {}
     }
   }
 
-  checkBoxCeck = (id)=>{
+  checkBoxCeck = (id,item)=>{
     const checkTodo = {...this.state.check}
-    if(checkTodo[id]) checkTodo[id] = false
-    else checkTodo[id] = true
-    this.setState({ check: checkTodo })
+    const checkTampung = {...this.state.tampung}
+    if(checkTodo[id]) {
+      checkTodo[id] = false
+      checkTampung[item] = false
+    }
+    else {
+      checkTodo[id] = true
+      checkTampung[item] = true
+    }
+    this.setState({ check: checkTodo },
+    this.setState({ tampung: checkTampung }))
   }
 
 
@@ -37,9 +46,9 @@ export default class App extends Component{
               {
                 return (
                 < View style={{flex:1, flexDirection:'row', paddingTop:30}} >
-                <CheckBox value={this.state.check[car.id]} onChange={()=> this.checkBoxCeck(car.id)} />
+                <CheckBox value={this.state.check[car.id]} onChange={()=> this.checkBoxCeck(car.id,car.item)} />
                 <Text style={style.item} key={car.id}>{car.item}</Text>
-                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ text: this.state.text = car.item }) }}><Text style={{textAlign:'center'}}>Edit</Text></TouchableOpacity>
+                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ text: this.state.text = JSON.stringify(Object.keys(this.state.tampung)) }) }}><Text style={{textAlign:'center'}}>Edit</Text></TouchableOpacity>
                 <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ carrs: this.state.carss.splice(this.state.carss.indexOf(car), 1) }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
                 </ View>
                 )
