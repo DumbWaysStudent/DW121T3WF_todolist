@@ -8,7 +8,6 @@ export default class App extends Component{
     this.state = {
       text:'',
       carss: [{id:1, item:'work'},{id:2, item:'swim'},{id:3, item:'study'},{id:4, item:'sleep'},{id:5, item:'run'}],
-<<<<<<< HEAD
       check: {},
       tampung: {}
     }
@@ -27,17 +26,6 @@ export default class App extends Component{
     }
     this.setState({ check: checkTodo },
     this.setState({ tampung: checkTampung }))
-=======
-      check: {} 
-    }
-  }
-
-  checkBoxCeck = (id)=>{
-    const checkTodo = {...this.state.check}
-    if(checkTodo[id]) checkTodo[id] = false
-    else checkTodo[id] = true
-    this.setState({ check: checkTodo })
->>>>>>> c122c7ce150f86b2a6cdcf37c559f28f122dc04b
   }
 
 
@@ -58,11 +46,7 @@ export default class App extends Component{
               {
                 return (
                 < View style={{flex:1, flexDirection:'row', paddingTop:30}} >
-<<<<<<< HEAD
                 <CheckBox value={this.state.check[car.id]} onChange={()=> this.checkBoxCeck(car.id,car.item)} />
-=======
-                <CheckBox value={this.state.check[car.id]} onChange={()=> this.checkBoxCeck(car.id)} />
->>>>>>> c122c7ce150f86b2a6cdcf37c559f28f122dc04b
                 <Text style={style.item} key={car.id}>{car.item}</Text>
                 <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ text: this.state.text = JSON.stringify(Object.keys(this.state.tampung)) }) }}><Text style={{textAlign:'center'}}>Edit</Text></TouchableOpacity>
                 <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ carrs: this.state.carss.splice(this.state.carss.indexOf(car), 1) }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
