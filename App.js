@@ -7,7 +7,7 @@ export default class App extends Component{
     super(props)
     this.state = {
       text:'',
-      carss: [{id:1, item:'work'},{id:2, item:'swim'},{id:3, item:'study'},{id:4, item:'sleep'},{id:5, item:'run'}] 
+      todos: [{id:1, item:'work'},{id:2, item:'swim'},{id:3, item:'study'},{id:4, item:'sleep'},{id:5, item:'run'}] 
     }
   }
 
@@ -21,17 +21,17 @@ export default class App extends Component{
       <View style={style.container}>
          <View style={{flex:1, flexDirection:'row'}}>
             <TextInput style={style.textfield} placeholder="Ketikkan data yang akan di tambah" onChangeText={(text)=>this.setState({text})} value={this.state.text} />
-            <TouchableOpacity style={{ width: 50, height: 35, borderWidth: 2, alignContent:'center' }}  onPress={()=>{ this.setState({ carrs: this.state.carss.push({id : this.state.carss.length + 1 , item: this.state.text}), text: this.state.text='' }) }}><Text style={{alignContent:'center', textAlign:'center'}}>Add</Text></TouchableOpacity>    
+            <TouchableOpacity style={{ width: 50, height: 35, borderWidth: 2, alignContent:'center' }}  onPress={()=>{ this.setState({ carrs: this.state.todos.push({id : this.state.todos.length + 1 , item: this.state.text}), text: this.state.text='' }) }}><Text style={{alignContent:'center', textAlign:'center'}}>Add</Text></TouchableOpacity>    
             <Text>{this.state.text}</Text>
           </View>
           <View style={{marginTop:30}}>
-            {this.state.carss.map((car)=>
+            {this.state.todos.map((car)=>
               {
                 return (
                 < View style={{flex:1, flexDirection:'row', paddingTop:30}} >
                 <CheckBox />
                 <Text style={style.item} key={car.id}>{car.item}</Text>
-                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ carrs: this.state.carss.splice(this.state.carss.indexOf(car), 1) }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
+                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ carrs: this.state.todos.splice(this.state.todos.indexOf(car), 1) }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
                 </ View>
                 )
               }
