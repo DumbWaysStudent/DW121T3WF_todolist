@@ -8,6 +8,7 @@ export default class App extends Component{
     this.state = {
       text:'',
       carss: [{id:1, item:'work'},{id:2, item:'swim'},{id:3, item:'study'},{id:4, item:'sleep'},{id:5, item:'run'}],
+<<<<<<< HEAD
       check: {} 
     }
   }
@@ -20,6 +21,13 @@ export default class App extends Component{
   }
 
 
+=======
+      
+    }
+  }
+
+ 
+>>>>>>> 36767c7d0b2a600a8cdde3705b041793b003226f
 
   render(){
     
@@ -37,9 +45,13 @@ export default class App extends Component{
               {
                 return (
                 < View style={{flex:1, flexDirection:'row', paddingTop:30}} >
+<<<<<<< HEAD
                 <CheckBox value={this.state.check[car.id]} onChange={()=> this.checkBoxCeck(car.id)} />
                 <Text style={style.item} key={car.id}>{car.item}</Text>
                 <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ carrs: this.state.carss.splice(this.state.carss.indexOf(car), 1) }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
+=======
+                <Text style={style.item} key={car.id}>{car.item}</Text>
+>>>>>>> 36767c7d0b2a600a8cdde3705b041793b003226f
                 </ View>
                 )
               }
@@ -62,7 +74,11 @@ const style = StyleSheet.create({
     borderBottomColor: 'black',
     borderBottomWidth: 2,   
     paddingTop: 5,
+<<<<<<< HEAD
     width :220,
+=======
+    width :350,
+>>>>>>> 36767c7d0b2a600a8cdde3705b041793b003226f
     height:27
   },
   textfield: {
