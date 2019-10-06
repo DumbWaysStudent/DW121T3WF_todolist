@@ -63,7 +63,7 @@ const style = StyleSheet.create({
     borderBottomColor: 'black',
     borderBottomWidth: 2,   
     paddingTop: 5,
-    width :270,
+    width :220,
     height:27
   },
   textfield: {
