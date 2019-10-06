@@ -29,7 +29,6 @@ export default class App extends Component{
               {
                 return (
                 < View style={{flex:1, flexDirection:'row', paddingTop:30}} >
-                <CheckBox />
                 <Text style={style.item} key={car.id}>{car.item}</Text>
                 <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ carrs: this.state.carss.splice(this.state.carss.indexOf(car), 1) }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
                 </ View>
