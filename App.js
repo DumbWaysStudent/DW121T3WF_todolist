@@ -3,13 +3,13 @@ import {Text, View, StyleSheet} from 'react-native'
 
 export default class App extends Component{
   render(){
-    const cars = ['work','swim','study','sleep','run']
+    const todos = ['work','swim','study','sleep','run']
 
   
 //map
   return(
       <View style={style.container}>
-       {cars.map((car)=>{return(<Text style={style.item}>{car}</Text>)})}
+       {todos.map((todo)=>{return(<Text style={style.item}>{todo}</Text>)})}
       </View>
     )
 
