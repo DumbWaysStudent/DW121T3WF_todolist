@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { Text, View, StyleSheet,TextInput,CheckBox, TouchableOpacity, FlatList} from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 export default class App extends Component{
   
@@ -30,7 +31,7 @@ export default class App extends Component{
                 return (
                 < View style={{flex:1, flexDirection:'row', paddingTop:30}} >
                 <Text style={style.item} key={car.id}>{car.item}</Text>
-                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ carrs: this.state.todos.splice(this.state.todos.indexOf(car), 1) }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
+                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ carrs: this.state.todos.splice(this.state.todos.indexOf(car), 1) }) }}><Text style={{textAlign:'center'}}><Icon name='trash' size={20} /></Text></TouchableOpacity>
                 </ View>
                 )
               }
