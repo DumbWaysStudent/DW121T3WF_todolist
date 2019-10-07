@@ -9,7 +9,7 @@ export default class App extends Component{
     this.state = {
       text:'',
       label:'Ketikkan data yang akan di tambah',
-      carss: [{id:1, item:'work'},{id:2, item:'swim'},{id:3, item:'study'},{id:4, item:'sleep'},{id:5, item:'run'}],
+      todos: [{id:1, item:'work'},{id:2, item:'swim'},{id:3, item:'study'},{id:4, item:'sleep'},{id:5, item:'run'}],
       check: {},
       tampung: {},
       id_edit: 0,
@@ -46,18 +46,18 @@ export default class App extends Component{
       <View style={style.container}>
          <View style={{flex:1, flexDirection:'row'}}>
             <TextInput style={style.textfield} placeholder={this.state.label} onChangeText={(text)=>this.setState({text})} value={this.state.text} />
-            <TouchableOpacity style={{ width: 50, height: 35, borderWidth: 2, alignContent:'center' }}  onPress={()=>{ if(this.state.button == 'Add'){ this.setState({ carrs: this.state.carss.push({id : this.state.carss.length + 1 , item: this.state.text}), text: this.state.text='' })} else if(this.state.button == 'update'){ this.state.carss[this.state.id_edit] = {id : this.state.carss.length + 1 , item: this.state.text}, this.setState({text:'', label:'Ketikkan data yang akan di tambah', button:'Add'})} }}><Text style={{alignContent:'center', textAlign:'center'}}>{this.state.button}</Text></TouchableOpacity>    
+            <TouchableOpacity style={{ width: 50, height: 35, borderWidth: 2, alignContent:'center' }}  onPress={()=>{ if(this.state.button == 'Add'){ this.state.todos.push({id : this.state.todos.length + 1 , item: this.state.text}), this.setState({text: this.state.text='' })} else if(this.state.button == 'update'){ this.state.todos[this.state.id_edit] = {id : this.state.todos.length + 1 , item: this.state.text}, this.setState({text:'', label:'Ketikkan data yang akan di tambah', button:'Add'})} }}><Text style={{alignContent:'center', textAlign:'center'}}>{this.state.button}</Text></TouchableOpacity>    
             <Text>{this.state.text}</Text>
           </View>
           <View style={{marginTop:30}}>
-            {this.state.carss.map((car)=>
+            {this.state.todos.map((todo)=>
               {
                 return (
                 < View style={{flex:1, flexDirection:'row', paddingTop:30}} >
-                <CheckBox value={this.state.check[car.id]} onChange={()=> {this.checkBoxCeck(car.id,car.item) }} />
-                <Text style={style.item} key={car.id}>{car.item}</Text>
-                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ button: "update", id_edit:this.state.carss.indexOf(car),text: car.item, id_update :car.id } )   }}><Text style={{textAlign:'center'}}>Edit</Text></TouchableOpacity>
-                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ carrs: this.state.carss.splice(this.state.carss.indexOf(car), 1) }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
+                <CheckBox value={this.state.check[todo.id]} onChange={()=> {this.checkBoxCeck(todo.id,todo.item) }} />
+                <Text style={style.item} key={todo.id}>{todo.item}</Text>
+                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ button: "update", id_edit:this.state.todos.indexOf(todo),text: todo.item, id_update :todo.id } )   }}><Text style={{textAlign:'center'}}>Edit</Text></TouchableOpacity>
+                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.state.todos.splice(this.state.todos.indexOf(todo), 1), this.setState({ todos: this.state.todos }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
                 </ View>
                 )
               }
