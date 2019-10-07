@@ -1,15 +1,36 @@
 import React, {Component} from 'react'
-import {Text, View, StyleSheet} from 'react-native'
+import { Text, View, StyleSheet,TextInput,CheckBox, TouchableOpacity, FlatList} from 'react-native'
+import { objectExpression } from '@babel/types'
 
 export default class App extends Component{
-  render(){
-    const todos = ['work','swim','study','sleep','run']
-
   
+  constructor(props){
+    super(props)
+    this.state = {
+      text:'',
+      label:'Ketikkan data yang akan di tambah',
+      todos: [{id:1, item:'work'},{id:2, item:'swim'},{id:3, item:'study'},{id:4, item:'sleep'},{id:5, item:'run'}],
+      button: 'Add'
+    }
+  }
+
+  render(){
+    
 //map
   return(
+  
       <View style={style.container}>
-       {todos.map((todo)=>{return(<Text style={style.item}>{todo}</Text>)})}
+          <View>
+            {this.state.todos.map((todo)=>
+              {
+                return (
+                < View style={{flex:1, flexDirection:'row', paddingTop:30}} >
+                <Text style={style.item} key={todo.id}>{todo.item}</Text>
+                </ View>
+                )
+              }
+              )}
+          </View>
       </View>
     )
 
@@ -18,14 +39,13 @@ export default class App extends Component{
 
 const style = StyleSheet.create({
   container: {
-    padding : 15,
-    marginTop: 4
+    padding : 2,
   },
   item: {
     color: 'grey',
     borderBottomColor: 'black',
-    borderBottomWidth: 2,
-    paddingBottom: 3,
-    paddingTop: 3
+    borderBottomWidth: 2,   
+    width :220,
+    height:27
   }
 })
