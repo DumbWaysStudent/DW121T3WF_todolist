@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react'
 import { Text, View, StyleSheet,TextInput,CheckBox, TouchableOpacity, FlatList} from 'react-native'
 import { objectExpression } from '@babel/types'
@@ -56,7 +57,6 @@ export default class App extends Component{
                 < View style={{flex:1, flexDirection:'row', paddingTop:30}} >
                 <CheckBox value={this.state.check[todo.id]} onChange={()=> {this.checkBoxCeck(todo.id,todo.item) }} />
                 <Text style={style.item} key={todo.id}>{todo.item}</Text>
-                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.setState({ button: "update", id_edit:this.state.todos.indexOf(todo),text: todo.item, id_update :todo.id } )   }}><Text style={{textAlign:'center'}}>Edit</Text></TouchableOpacity>
                 <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.state.todos.splice(this.state.todos.indexOf(todo), 1), this.setState({ todos: this.state.todos }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
                 </ View>
                 )
