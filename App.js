@@ -31,7 +31,6 @@ export default class App extends Component{
                 return (
                 < View style={{flex:1, flexDirection:'row', paddingTop:30}} >
                 <Text style={style.item} key={todo.id}>{todo.item}</Text>
-                <TouchableOpacity style={{ width: 50, height: 30, borderWidth: 2 }}  onPress={()=>{ this.state.todos.splice(this.state.todos.indexOf(todo), 1), this.setState({ todos: this.state.todos }) }}><Text style={{textAlign:'center'}}>Delete</Text></TouchableOpacity>
                 </ View>
                 )
               }
